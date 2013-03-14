@@ -1,0 +1,19 @@
+from pymongo import Connection 
+host= 'flame.mongohq.com' 
+port = 27088 
+dbName = 'YourDatabaseName' 
+
+#also like this:
+#c = Connection("mongodb://<username>:<password>@stuff.mongohq.com:10569/mydb")
+ 
+connection = Connection(host, port) 
+db = connection[dbName] 
+ 
+userID = 'YourNameFromReg' 
+pwd = 'YourPassFromReg' 
+db = connection[dbName] 
+db.authenticate(userID, pwd) 
+ 
+for collection in db.collection_names(): 
+    print collection
+
